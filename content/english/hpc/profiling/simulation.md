@@ -20,8 +20,8 @@ There are many subcategories of such profilers, differing in which aspect of com
 Cachegrind essentially inspects the binary for "interesting" instructions — that perform memory reads / writes and conditional / indirect jumps — and replaces them with code that simulates corresponding hardware operations using software data structures. It therefore doesn't need access to the source code and can work with already compiled programs, and can be run on any program like this:
 
 ```bash
-valgrind --tool=cachegrind --branch-sim=yes ./run
-#       also simulate branch prediction ^   ^ any command, not necessarily one process
+valgrind  --tool=cachegrind   --branch-sim=yes   --cache-sim=yes   ./run
+#                             branch prediction  cache simulation  any command
 ```
 
 It instruments all involved binaries, runs them, and outputs a summary similar to [perf stat](../events):
