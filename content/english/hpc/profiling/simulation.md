@@ -90,7 +90,7 @@ The whole source-to-analysis process would therefore go like this:
 
 ```bash
 g++ -O3 -g sort-and-search.cc -o run
-valgrind --tool=cachegrind --branch-sim=yes --cachegrind-out-file=cachegrind.out ./run
+valgrind --tool=cachegrind --cache-sim=yes --branch-sim=yes --cachegrind-out-file=cachegrind.out ./run
 cg_annotate cachegrind.out --auto=yes --show=Dr,D1mr,DLmr,Bc,Bcm
 ```
 
